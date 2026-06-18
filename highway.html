@@ -59,11 +59,6 @@ body{
   transform: translateX(1200px);
 }
 
-.text-03{
-  width:320px;
-  left:60%;
-  top:260px;
-}
 </style>
 </head>
 
@@ -110,7 +105,6 @@ const highwayPosition = document.querySelector('.highway-position');
 const highwayWrap = document.querySelector('.highway-wrap');
 const text01 = document.querySelector('.text-01');
 const text02 = document.querySelector('.text-02');
-const text03 = document.querySelector('.text-03');
 
 window.addEventListener('scroll', () => {
 
@@ -170,23 +164,6 @@ window.addEventListener('scroll', () => {
   text02.style.transform =
     `translateX(${text02Move}px)`;
 
-
-  /* text-03 */
-
-  let text03Move = 1200;
-
-  if(y > 8500 && y < 10000){
-
-    text03Move =
-      1200 - (y - 8500) * 0.8;
-
-  } else if(y >= 10000){
-
-    text03Move = 0;
-  }
-
-  text03.style.transform =
-    `translateX(${text03Move}px)`;
 
 });
 
