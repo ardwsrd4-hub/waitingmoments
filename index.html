@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>waiting moment</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    .main {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+     
+    }
+/* 상단 바 */
+.menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 90px;
+
+  background: white;
+  border-bottom: 1px solid black;
+
+  z-index: 9998;
+}
+/* 메뉴 공통 */
+.menu-wrap {
+  position: absolute;
+  cursor: pointer;
+  z-index: 9999;
+  text-decoration: none;
+  display: block;
+}
+
+.menu-img {
+  width: 100%;
+  display: block;
+}
+
+/* hover 이미지 */
+.hover-img {
+  position: absolute;
+  bottom: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 20px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.menu-wrap:hover .hover-img {
+  opacity: 1;
+}
+
+/* 메뉴 위치 */
+.menu-01-wrap {
+  left: 30px;
+  top: 28px;
+  width: 35px;
+}
+
+.menu-03-wrap {
+  right: 95px;
+  top: 19px;
+  width: 55px;
+}
+
+.menu-04-wrap {
+  right: 20px;
+  top: 19px;
+  width: 55px;
+}
+
+    .title {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 360px;
+      z-index: 10;
+      opacity: 0;
+    }
+
+    .item {
+      position: absolute;
+      object-fit: contain;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .item:hover {
+      transform: scale(1.05);
+    }
+
+
+    .elevator {
+      left: 58px;
+      top: 140px;
+      width: 300px;
+    }
+
+
+    .delivery {
+      left: 432px;
+      top: 131px;
+      width: 490px;
+    }
+
+    .clock {
+      left: 410px;
+      top: 385px;
+      width: 260px;
+
+      animation: spin 6s linear infinite;
+    }
+
+    .loading {
+      left: 1010px;
+      top: 220px;
+      width: 95px;
+      z-index: 2;
+
+      animation: spin 6s linear infinite;
+    }
+
+    .sleep {
+      left: 730px;
+      top: 385px;
+      width: 480px;
+    }
+
+    .subway {
+      position: absolute;
+      left: 900px;
+      top: 0;
+      width: 430px;
+      z-index: 1;
+    }
+
+    .subway-hitbox-1 {
+      position: absolute;
+      left: 76%;
+      top: 15%;
+      width: 100px;
+      height: 100px;
+      z-index: 10;
+      display: block;
+      cursor: pointer;
+
+    }
+
+    .subway-hitbox-2 {
+      position: absolute;
+      left: 60%;
+      top: 0%;
+      width: 400px;
+      height: 130px;
+      z-index: 10;
+      display: block;
+      cursor: pointer; 
+
+   }
+
+   .subway-hitbox-3 {
+      position: absolute;
+      left: 80%;
+      top: 22%;
+      width: 100px;
+      height: 230px;
+      z-index: 10;
+      display: block;
+      cursor: pointer;
+      
+   }
+
+   .highway-slider {
+     position: absolute;
+     right: -2%;
+     top: 0;
+
+     width: 180px;
+     height: 100vh;
+  
+     overflow: hidden;
+     z-index: 2;
+   }
+
+   .highway-track {
+     display: flex;
+     flex-direction: column;
+
+     height: max-content;
+
+     animation: highwaySlide 28s linear infinite;
+   }
+
+   .highway-img {
+     width: 180px;
+     flex-shrink: 0;
+   } 
+    
+
+    .line {
+      left: -2%;
+      bottom: 0%;
+      width: 90%;
+      z-index: 1;
+      
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    .slider {
+      position: absolute;
+      left: 0;
+      bottom: -2%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .slide-track {
+      display: flex;
+      width: max-content;
+      animation: slide 20s linear infinite;
+    }
+
+    .slide-img {
+      width: 100vw;
+      flex-shrink: 0;
+    }
+
+    @keyframes slide {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-100vw);
+     }
+    }
+
+     @keyframes highwaySlide {
+       from {
+         transform: translateY(0);
+       }
+
+       to {
+         transform: translateY(-50%);
+       }
+     }
+  </style>
+</head>
+
+<body>
+  <main class="main">
+    <img src="images/title.png" class="title" alt="기다림의 순간" />
+
+    <a href="elevator.html">
+      <img src="images/elevator.png" class="item elevator" alt="엘리베이터 기다림" />
+    </a>
+
+    <a href="delivery.html">
+      <img src="images/delivery.png" class="item delivery" alt="배송" />
+    </a>
+
+    <a href="clock.html">
+      <img src="images/clock.png" class="item clock" alt="잠에 들기까지" />
+    </a>
+
+    <a href="loading.html">
+      <img src="images/loading.png" class="item loading" alt="로딩바" />
+    </a>
+
+    <a href="sleep.html">
+      <img src="images/sleep.png" class="item sleep" alt="잠에 들기까지" />
+    </a>
+
+    <img src="images/subway.png" class="item subway" alt="지하철 노선도">
+
+    <a href="subway.html" class="subway-hitbox-1" aria-label="지하철 페이지로 이동"></a>
+    <a href="subway.html" class="subway-hitbox-2" aria-label="지하철 페이지로 이동"></a>
+    <a href="subway.html" class="subway-hitbox-3" aria-label="지하철 페이지로 이동"></a>
+    <a href="home.html" class="menu-wrap menu-01-wrap">
+     <!-- 상단 바 -->
+    <div class="menu-bar"></div>
+
+
+    <!-- 메뉴 -->
+    <a href="index.html" class="menu-wrap menu-01-wrap">
+      <img src="images/menu-01.png" class="menu-img" alt="home">
+      <img src="images/hover-01.png" class="hover-img" alt="">
+    </a>
+
+    <a href="font.html" class="menu-wrap menu-03-wrap">
+      <img src="images/menu-03.png" class="menu-img" alt="archive">
+      <img src="images/hover-03.png" class="hover-img" alt="">
+    </a>
+
+    <a href="about.html" class="menu-wrap menu-04-wrap">
+      <img src="images/menu-04.png" class="menu-img" alt="credit">
+      <img src="images/hover-04.png" class="hover-img" alt="">
+    </a>
+
+
+    <a href="highway.html">
+      <div class="highway-slider">
+        <div class="highway-track">
+          <img src="images/highway.png" class="highway-img">
+          <img src="images/highway.png" class="highway-img">
+        </div>
+      </div>
+    </a>
+
+    <div class="slider">
+      <div class="slide-track">
+
+        <a href="line.html">
+          <img src="images/line.png" class="slide-img" alt="긴 대기줄">
+        </a>
+
+        <a href="line.html">
+          <img src="images/line.png" class="slide-img" alt="긴 대기줄">
+        </a>
+
+  </div>
+</div>
+  </main>
+</body>
+</html>
