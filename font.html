@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Borzoi Font</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: white;
+  overflow-x: hidden;
+}
+
+.main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+}
+
+/* 상단 바 */
+.menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 90px;
+
+  background: white;
+  border-bottom: 1px solid black;
+
+  z-index: 9998;
+}
+
+
+
+/* 메뉴 공통 */
+.menu-wrap {
+  position: fixed;
+  cursor: pointer;
+  z-index: 9999;
+  text-decoration: none;
+  display: block;
+}
+
+.menu-img {
+  width: 100%;
+  display: block;
+}
+
+/* hover 이미지 */
+.hover-img {
+  position: absolute;
+  bottom: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 20px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.menu-wrap:hover .hover-img {
+  opacity: 1;
+}
+
+/* 메뉴 위치 */
+.menu-01-wrap {
+  left: 30px;
+  top: 28px;
+  width: 35px;
+}
+
+
+.menu-03-wrap {
+  right: 95px;
+  top: 19px;
+  width: 55px;
+}
+
+.menu-04-wrap {
+  right: 20px;
+  top: 19px;
+  width: 55px;
+}
+.font-page {
+  width: 100%;
+}
+
+.section {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 250px 0;
+}
+
+.font-main {
+  margin-top: 220px;
+}
+
+.borzoi {
+  margin-top: 200px;
+}
+
+.text-img {
+  margin-top: -170px;
+}
+
+.korean {
+  margin-top: 100px;
+}
+
+.number {
+  margin-top: -200px;
+}
+
+.structure {
+  margin-top: 10px;
+}
+
+.font-text-1,
+.font-text-2,
+.font-text-3 {
+  margin: 120px 0;
+}
+
+.section img {
+  width: 70%;
+  max-width: 1000px;
+  display: block;
+
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.font-main img {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* 첫 번째 큰 보르조이 이미지 */
+.borzoi img {
+  width: 20%;
+  max-width: 220px;
+}
+
+/* 설명 텍스트 이미지 */
+.text-img img {
+  width: 70%;
+  max-width: 550px;
+}
+
+/* 글자 구조 이미지 */
+.structure img {
+  width: 25%;
+  max-width: 800px;
+}
+
+/* 한글 이미지 */
+.korean img {
+  width: 30%;
+  max-width: 800px;
+}
+
+/* 숫자 이미지 */
+.number img {
+  width: 30%;
+  max-width: 800px;
+}
+
+/* 긴 문장 이미지 */
+.long-text img {
+  width: 85%;
+  max-width: 1000px;
+}
+
+.font-text-1 img,
+.font-text-2 img,
+.font-text-3 img {
+  width: 60%;
+  max-width: 700px;
+}
+
+.text-img-korean{
+  margin-top: -220px;
+}
+
+.text-img-number{
+  margin-top: -220px;
+}
+
+.font-text-1 img,
+.font-text-2 img,
+.font-text-3 img {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+.font-submenu{
+  position:fixed;
+
+  left:30px;
+  top:140px;
+
+  z-index:9999;
+
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+
+.font-submenu img{
+  width:65px;
+  display:block;
+
+  opacity:1;
+  transition:.3s;
+}
+
+.font-submenu a.dim img{
+  opacity:.3;
+}
+
+.font-submenu a.active img{
+  opacity:1;
+}
+
+.font-submenu img:hover{
+  opacity:1;
+}
+
+.submenu-04{
+  Margin-left:0px;
+  width:100px !important;
+}
+#intro,
+#korean,
+#structure,
+#showcase{
+  scroll-margin-top: 180px;
+}
+</style>
+</head>
+
+<body>
+
+<main class="font-page">
+
+<div class="font-submenu">
+
+  <a href="#intro" class="sub-link active" data-target="intro">
+   <img src="images/font_menu-1.png">
+  </a>
+
+  <a href="#korean" class="sub-link" data-target="korean">
+    <img src="images/font_menu-2.png">
+  </a>
+
+  <a href="#structure" class="sub-link" data-target="structure">
+    <img src="images/font_menu-3.png">
+  </a>
+
+  <a href="#showcase" class="sub-link" data-target="showcase">
+    <img src="images/font_menu-4.png" class="submenu-04">
+  </a>
+
+</div>
+
+  <section class="section font-main">
+    <img src="images/font-main.png" alt="폰트 메인">
+  </section>
+
+  <section class="section borzoi" id="intro">
+    <img src="images/font_borzoi.png" alt="보르조이">
+  </section>
+
+  <section class="section text-img">
+    <img src="images/font_font-text-1.png" alt="폰트 설명">
+  </section>
+
+  <section class="section korean" id="korean">
+    <img src="images/font_korean.png" alt="한글 자모">
+  </section>
+
+  <section class="section text-img text-img-korean">
+    <img src="images/font_font-text-3.png" alt="폰트 설명">
+  </section>
+
+  <section class="section number" id="number">
+    <img src="images/font_number.png" alt="숫자">
+  </section>
+
+  <section class="section text-img text-img-number">
+    <img src="images/font_font-text-4.png" alt="폰트 설명">
+  </section>
+
+  <section class="section structure" id="structure">
+    <img src="images/font_structure.png" alt="폰트 구조">
+  </section>
+
+  <section class="section text-img">
+    <img src="images/font_font-text-2.png" alt="폰트 설명">
+  </section>
+
+  <section class="section font-text-1" id="showcase">
+    <img src="images/font_font-font-1.png" alt="긴 문장">
+  </section>
+
+  <section class="section font-text-2">
+    <img src="images/font_font-font-2.png" alt="긴 문장">
+  </section>
+
+  <section class="section font-text-3">
+    <img src="images/font_font-font-3.png" alt="긴 문장">
+  </section>
+
+ <!-- 상단 바 -->
+  <div class="menu-bar"></div>
+
+  <!-- 메뉴 -->
+  <a href="index.html" class="menu-wrap menu-01-wrap">
+    <img src="images/menu-01.png" class="menu-img" alt="home">
+    <img src="images/hover-01.png" class="hover-img" alt="">
+  </a>
+
+  <a href="font.html" class="menu-wrap menu-03-wrap">
+    <img src="images/menu-03.png" class="menu-img" alt="archive">
+    <img src="images/hover-03.png" class="hover-img" alt="">
+  </a>
+
+  <a href="about.html" class="menu-wrap menu-04-wrap">
+    <img src="images/menu-04.png" class="menu-img" alt="credit">
+    <img src="images/hover-04.png" class="hover-img" alt="">
+  </a>
+
+</main>
+
+<script>
+const subLinks = document.querySelectorAll('.sub-link');
+const sections = document.querySelectorAll('#intro, #korean, #structure, #showcase');
+const introSection = document.querySelector('#intro');
+
+function resetMenu() {
+  subLinks.forEach(link => {
+    link.classList.remove('active');
+    link.classList.remove('dim');
+  });
+}
+
+function setActiveMenu(id) {
+  subLinks.forEach(link => {
+    if (link.dataset.target === id) {
+      link.classList.add('active');
+      link.classList.remove('dim');
+    } else {
+      link.classList.remove('active');
+      link.classList.add('dim');
+    }
+  });
+}
+
+subLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    setActiveMenu(link.dataset.target);
+  });
+});
+
+window.addEventListener('scroll', () => {
+  const introTop = introSection.getBoundingClientRect().top;
+
+  // intro 섹션이 아직 화면 아래에 있으면 = font-main 구간
+  if (introTop > window.innerHeight * 0.5) {
+    resetMenu();
+    return;
+  }
+
+  let current = 'intro';
+
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+
+    if (sectionTop < window.innerHeight * 0.5) {
+      current = section.id;
+    }
+  });
+
+  setActiveMenu(current);
+});
+</script>
+
+</body>
+</html>

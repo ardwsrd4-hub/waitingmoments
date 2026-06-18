@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>highway</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#fff;
+  overflow-x:hidden;
+  min-height:25000px;
+}
+
+.highway-position{
+  position:fixed;
+  left:0;
+  top:490px;
+  z-index:1;
+}
+
+.highway-wrap{
+  display:flex;
+  flex-direction:row;
+  transition:transform 0.05s linear;
+}
+
+.highway-h{
+  height:300px;
+  flex-shrink:0;
+  display:block;
+}
+
+/* 텍스트 공통 */
+.highway-text{
+  position:fixed;
+  z-index:50;
+  display:block;
+  transition:transform 0.05s linear;
+}
+
+/* 고정됐을 때 기본 위치 */
+.text-01{
+  width:300px;
+  left:calc(50% - 150px);
+  top:130px;
+}
+
+.text-02{
+  width:500px;
+  left:calc(50% - 250px);
+  top:170px;
+
+  transform: translateX(1200px);
+}
+
+.text-03{
+  width:320px;
+  left:60%;
+  top:260px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="highway-position">
+  <div class="highway-wrap">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+    <img src="images/highway-h.png" class="highway-h">
+   
+  </div>
+</div>
+
+<img src="images/highway-text-01.png" class="highway-text text-01">
+<img src="images/highway-text-02.png" class="highway-text text-02">
+<img src="images/highway-text-03.png" class="highway-text text-03">
+
+<script>
+
+const highwayPosition = document.querySelector('.highway-position');
+const highwayWrap = document.querySelector('.highway-wrap');
+const text01 = document.querySelector('.text-01');
+const text02 = document.querySelector('.text-02');
+const text03 = document.querySelector('.text-03');
+
+window.addEventListener('scroll', () => {
+
+  const y = window.scrollY;
+
+  /* 도로 가로 이동 */
+  highwayWrap.style.transform =
+    `translateX(${-y * 1}px)`;
+
+
+  /* text-02 등장 이후 도로가 조금씩 위로 이동 */
+
+  let roadTop = 490;
+
+  if(y > 8500){
+    roadTop = 490 - (y - 8500) * 0.08;
+  }
+
+  if(roadTop < 260){
+    roadTop = 260;
+  }
+
+  highwayPosition.style.top = roadTop + 'px';
+
+
+  /* text-01 */
+
+  let text01Move = 0;
+
+  if(y > 2500){
+    text01Move = -(y - 2500) * 1;
+  }
+
+  text01.style.transform =
+    `translateX(${text01Move}px)`;
+
+
+  /* text-02 */
+
+  let text02Move = 1200;
+
+  if(y > 3500 && y < 5000){
+
+    text02Move =
+      1200 - (y - 3500) * 0.8;
+
+  } else if(y >= 5000 && y < 7500){
+
+    text02Move = 0;
+
+  } else if(y >= 7500){
+
+    text02Move =
+      -(y - 7500) * 1;
+  }
+
+  text02.style.transform =
+    `translateX(${text02Move}px)`;
+
+
+  /* text-03 */
+
+  let text03Move = 1200;
+
+  if(y > 8500 && y < 10000){
+
+    text03Move =
+      1200 - (y - 8500) * 0.8;
+
+  } else if(y >= 10000){
+
+    text03Move = 0;
+  }
+
+  text03.style.transform =
+    `translateX(${text03Move}px)`;
+
+});
+
+</script>
+</body>
+</html>

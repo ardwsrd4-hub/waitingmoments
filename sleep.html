@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>sleep</title>
+
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    .title{
+      width:300px;
+      margin:50px auto;
+      display:block;
+    }
+
+    .sleep{
+      position:absolute;
+      left:50%;
+      transform:translate(-50%, 50%);
+      width: 750px;
+    }
+ 
+    .float-img{
+      position:absolute;
+      transition:
+        left 6s linear,
+        top 6s linear;
+    }
+
+
+</style>
+
+</head>
+
+<body>
+    
+
+<img src="images/sleep.png" class="sleep"> 
+
+<img src="images/z-1.png" class="float-img" style="width:50px;">
+<img src="images/z-2.png" class="float-img" style="width:80px;">
+<img src="images/z-3.png" class="float-img" style="width:100px;">
+
+
+
+<script>
+const images = document.querySelectorAll('.float-img');
+
+images.forEach(img => {
+  function moveRandom() {
+    const x = Math.random() * (window.innerWidth - img.offsetWidth);
+    const y = Math.random() * (window.innerHeight - img.offsetHeight);
+
+    img.style.left = x + 'px';
+    img.style.top = y + 'px';
+  }
+
+  // 처음 위치 설정
+  moveRandom();
+
+  // 아주 짧게 기다린 뒤 첫 움직임 시작
+  setTimeout(moveRandom);
+
+  // 이후 계속 이동
+  setInterval(moveRandom, 5000);
+});
+</script>
+
+</body>
+</html>

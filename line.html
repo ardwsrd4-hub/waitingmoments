@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>line</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  overflow-x: hidden;
+  min-height: 5000px;
+}
+
+.line-detail {
+  display: block;
+  width: 40%;
+}
+
+.line-wrap {
+  position: relative;
+  left: 110px;
+  top: 50px;
+}
+
+/* 텍스트 고정 구간 */
+.sticky-wrap {
+  position: absolute;
+  z-index: 50;
+}
+
+/* text-01 위치 + 고정 유지 구간 */
+.sticky-wrap-01 {
+  top: 300px;
+  left: 60%;
+  height: 3000px;
+}
+
+/* text-02 위치 + 고정 유지 구간 */
+.sticky-wrap-02 {
+  top: 4000px;
+  left: 55%;
+  height: 3200px;
+}
+
+/* text-03은 일반 등장 */
+.text-section {
+  position: absolute;
+  z-index: 50;
+}
+
+.line-text {
+  display: block;
+}
+
+/* sticky 되는 이미지 */
+.sticky-text {
+  position: sticky;
+  top: 350px;
+}
+
+/* text-01은 좀 더 아래에 고정 */
+.text-01 .sticky-text {
+  top: 300px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="line-wrap">
+  <img src="images/line-detail.png" class="line-detail">
+  <img src="images/line-detail-02.png" class="line-detail">
+  <img src="images/line-detail-03.png" class="line-detail">
+  <img src="images/line-detail-04.png" class="line-detail">
+  <img src="images/line-detail-05.png" class="line-detail">
+  <img src="images/line-detail-06.png" class="line-detail">
+  <img src="images/line-detail-07.png" class="line-detail">
+  <img src="images/line-detail-08.png" class="line-detail">
+  <img src="images/line-detail-09.png" class="line-detail">
+  <img src="images/line-detail-10.png" class="line-detail">
+  <img src="images/line-detail-11.png" class="line-detail">
+  <img src="images/line-detail-12.png" class="line-detail">
+</div>
+
+<!-- text-01: 등장 → 고정 → 구간 끝나면 자연스럽게 위로 올라감 -->
+<div class="sticky-wrap sticky-wrap-01 text-01">
+  <img src="images/line-text-01.png" class="line-text sticky-text reveal" style="width:300px;">
+</div>
+
+<!-- text-02: 나중에 등장 → 페이지 끝까지 고정 -->
+<div class="sticky-wrap sticky-wrap-02 text-02">
+  <img src="images/line-text-02.png" class="line-text sticky-text reveal" style="width:500px;">
+</div>
+
+<!-- text-03: 그냥 등장 -->
+<div class="text-section" style="top:3500px; left:20%;">
+  <img src="images/line-text-03.png" class="line-text reveal" style="width:120px;">
+</div>
+
+<script>
+
+const lineWrap = document.querySelector('.line-wrap');
+
+window.addEventListener('scroll', () => {
+
+  const y = window.scrollY;
+
+  // 2000px 이후부터 이동 시작
+  let move = 0;
+
+  if(y > 7000){
+    move = (y - 7000) * 0.15;
+  }
+
+  // 최대 이동 거리 제한
+  if(move > 350){
+    move = 350;
+  }
+
+  lineWrap.style.left = (110 + move) + 'px';
+
+});
+
+</script>
+
+</body>
+</html>

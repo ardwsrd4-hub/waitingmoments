@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>loading</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  overflow-x: hidden;
+}
+
+.title {
+  width: 300px;
+  margin: 50px auto;
+  display: block;
+}
+
+.loading {
+  position: fixed;
+  left: 50%;
+  top: 12%;
+  width: 450px;
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<img src="images/loading.png" class="loading" alt="loading">
+
+</body>
+</html>

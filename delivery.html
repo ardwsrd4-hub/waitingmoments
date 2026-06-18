@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>delivery</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#fff;
+  overflow-x:hidden;
+}
+
+/* 스크롤 공간 확보 */
+.scroll-space{
+  height:24000px;
+}
+
+/* 딜리버리 위치 */
+.delivery-position{
+  position:fixed;
+  left:15px;
+  top:280px;
+  z-index:1;
+}
+
+/* 움직이는 영역 */
+.delivery-wrap{
+  display:flex;
+  flex-direction:row;
+  transition:transform 0.05s linear;
+}
+
+/* 이미지 */
+.delivery{
+  height:100px;
+  flex-shrink:0;
+  display:block;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="delivery-position">
+
+  <div class="delivery-wrap">
+
+      <img src="images/delivery.png" class="delivery">
+      
+
+  </div>
+
+</div>
+
+
+
+<!-- 스크롤 공간 -->
+<div class="scroll-space"></div>
+
+<script>
+
+window.addEventListener('scroll', () => {
+
+  const scrollY = window.scrollY;
+
+  document.querySelector('.delivery-wrap').style.transform =
+    `translateX(${scrollY * 0.05}px)`;
+
+});
+
+</script>
+
+</body>
+</html>
